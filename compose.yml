@@ -1,0 +1,23 @@
+services:
+  rassistant-frontend-service:
+    image: ghcr.io/rasool-karami1994/rassistant-ai-assistant:${TAG_NAME}
+    container_name: rassistant-frontend-service
+    hostname: rassistant-frontend-service
+    environment:
+      - TZ=Asia/Tehran
+    restart: always
+    ports:
+      - 3008:3000
+    networks:
+      - ${DEPLOY_NAME}
+
+networks:
+  dev:
+    name: dev
+    external: true
+  stage:
+    name: stage
+    external: true
+  prod:
+    name: prod
+    external: true

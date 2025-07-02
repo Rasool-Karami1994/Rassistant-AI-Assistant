@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" }
+  ],
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components": ["src/react/components"],
+      "@components/*": ["src/react/components/*"],
+      "@ui": ["src/react/ui"],
+      "@ui/*": ["src/react/ui/*"],
+      "@hooks": ["src/react/hooks"],
+      "@hooks/*": ["src/react/hooks/*"],
+      "@lib": ["src/react/lib"],
+      "@lib/*": ["src/react/lib/*"],
+      "@api": ["src/react/api"],
+      "@types": ["src/react/api/types.ts"],
+      "@react/*": ["src/react/*"]
+    }
+  }
+}
