@@ -1,23 +1,13 @@
+version: '3.8'
 services:
-  rassistant-frontend-service:
-    image: ghcr.io/rasool-karami1994/rassistant-ai-assistant:${TAG_NAME}
-    container_name: rassistant-frontend-service
-    hostname: rassistant-frontend-service
-    environment:
-      - TZ=Asia/Tehran
-    restart: always
+  frontend:
+    build: .
     ports:
-      - 3008:3000
-    networks:
-      - ${DEPLOY_NAME}
-
-networks:
-  dev:
-    name: dev
-    external: true
-  stage:
-    name: stage
-    external: true
-  prod:
-    name: prod
-    external: true
+      - "3000:80"
+    volumes:
+      - .:/app
+    command: >
+      sh -c "npm install && npm run dev"
+    environment:
+      - VITE_HOST=0.0.0.0
+      - VITE_PORT=3000
